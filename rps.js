@@ -5,27 +5,23 @@ function computerChoice() {
     return choices[randomIndex];
   }
   
-  function playGame() {
-    const userChoice = prompt("Choose rock, paper, or scissors:").toLowerCase();
+  function playRound(userChoice) {
     const computer = computerChoice();
   
     if (!["rock", "paper", "scissors"].includes(userChoice)) {
-      alert("Invalid choice. Please choose rock, paper, or scissors.");
-      return;
+      return "Invalid choice";
     }
   
-    alert(`Computer chose ${computer}`);
-  
     if (userChoice === computer) {
-      alert("It's a tie!");
+      return "Tie";
     } else if (
       (userChoice === "rock" && computer === "scissors") ||
       (userChoice === "paper" && computer === "rock") ||
       (userChoice === "scissors" && computer === "paper")
     ) {
-      alert("You win!");
+      return "You win";
     } else {
-      alert("Computer wins!");
+      return "Computer wins";
     }
   }
   
